@@ -1,3 +1,4 @@
 config.json
 migrations/.migrate-development
 node_modules
+docker-compose.yml
