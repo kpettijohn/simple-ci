@@ -110,3 +110,36 @@ seconds.
 ```
 $ ./bin/test_runner 2>&1 >test.log &
 ```
+
+### Docker
+
+Create the [docker-compose](https://docs.docker.com/compose/) and simple-ci configurations.
+
+```
+cp docker-compose.yml.sample docker-compose.yml
+cp config.json.sample config.json
+```
+
+Start the PostgreSQL and Redis containers.
+
+```
+docker-compose up -d db redis
+```
+
+Build the simple-ci image.
+
+```
+docker-compose build
+```
+
+Run simple-ci migrations.
+
+```
+docker-compose up migratedb
+```
+
+Start the simple-ci web interface.
+
+```
+docker-compose up web
+```
