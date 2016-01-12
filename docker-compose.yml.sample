@@ -1,0 +1,25 @@
+web:
+  build: .
+  command: node index.js
+  ports:
+    - "8080:8080"
+  links:
+    - db:psql-ci
+    - redis:redis-ci
+migratedb:
+  build: .
+  command: npm run migrate-up
+  links:
+    - db:psql-ci
+db:
+  image: kpettijohn/postgres-plv8:9.5-1.4.4
+  ports:
+    - "5432:5432"
+  environment:
+    POSTGRES_PASSWORD: "password"
+    POSTGRES_USER: "ci"
+    POSTGRES_DB: "ci"
+redis:
+  image: redis:3.0.6
+  ports:
+    - "6379"
