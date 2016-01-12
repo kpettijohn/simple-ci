@@ -4,11 +4,11 @@
       "username": "ci",
       "password": "password",
       "database": "ci",
-      "hostname": "database-server",
+      "hostname": "psql-ci",
       "port": 5432
     },
     "redis": {
-      "hostname": "hostname",
+      "hostname": "redis-ci",
       "port": 6379
     }
   },
@@ -16,5 +16,4 @@
   "webserver": {
     "port": 8080
   }
-
 }
